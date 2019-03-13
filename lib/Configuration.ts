@@ -1,19 +1,20 @@
-var fs = require('fs');
-function getConfig(argv) {
+const fs = require('fs');
+
+function getConfig(argv: string[]){
+
     // Get the configuration
-    if (argv[3]) {
+    if(argv[3]){
         try {
-            var raw = fs.readFileSync(argv[3]);
+            const raw = fs.readFileSync(argv[3]);
             return JSON.parse(raw);
-        }
-        catch (e) {
+        } catch (e) {
             throw e;
         }
-    }
-    else {
+    } else {
         throw new Error('Please provide a configuration file using the -c option');
     }
 }
+
 module.exports = {
     getConfig: getConfig
-};
+}
