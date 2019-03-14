@@ -90,6 +90,7 @@ class RawData extends MultidimensionalInterface {
         // HTTP interface to gat a specific fragment of data (historic data)
         this.commMan.router.get('/' + this._name + '/fragments', async (ctx, next) => {
             const queryTime = new Date(ctx.query.time);
+
             if(queryTime.toString() === 'Invalid Date'){
 
                 // Redirect to now time
@@ -98,7 +99,6 @@ class RawData extends MultidimensionalInterface {
                 return;
             }
 
-            //const fragments = Utils.getAllFragments(this._fragmentsPath).map(f => new Date(f.substring(0, f.indexOf('.trig'))).getTime());
             const fragments = Utils.getAllFragments(this.fragmentsPath).map(f => {
                 f = f.replace(/_/g, ':');
                 return new Date(f.substring(0, f.indexOf('.trig'))).getTime();
@@ -109,18 +109,18 @@ class RawData extends MultidimensionalInterface {
 
                 // Redirect to correct fragment URL
                 ctx.status = 302;
-
-                // Again, we have to change the forbidden character to one that is not forbidden
-                const modFragment = fragment.toISOString().replace(/:/g, '_');
-                ctx.redirect('/' + this.name + '/fragments?time=' + modFragment);
+                ctx.redirect('/' + this.name + '/fragments?time=' + fragment.toISOString());
                 return;
             }
-
             const fc = Utils.getFragmentsCount(this._fragmentsPath);
 
             const st = await Utils.getTriplesFromFile(this._staticTriples);
             const staticTriples = await Utils.formatTriples('application/trig', st[1], st[0]);
-            const ft = await Utils.getTriplesFromFile(this._fragmentsPath + '/' + fragment.toISOString());
+
+            // Again, we have to change the forbidden character to one that is not forbidden
+            const modFragment = fragment.toISOString().replace(/:/g, '_');
+            const ft = await Utils.getTriplesFromFile(this._fragmentsPath + '/' + modFragment + ".trig");
+
             const fragmentTriples = await Utils.formatTriples('application/trig', ft[1], ft[0]);
             const metaData = await this.createMetadata(fragment, index);
 
