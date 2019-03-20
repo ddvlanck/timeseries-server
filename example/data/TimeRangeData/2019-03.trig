@@ -1,0 +1,14 @@
+<undefinedTimeRange/fragment/2019_2020/03_04> {
+<https://stad.gent/id/parking/P7> <http://datapiloten.be/vocab/timeseries#mean> "348".
+<https://stad.gent/id/parking/P10> <http://datapiloten.be/vocab/timeseries#mean> "635".
+<https://stad.gent/id/parking/P1> <http://datapiloten.be/vocab/timeseries#mean> "502".
+<https://stad.gent/id/parking/P4> <http://datapiloten.be/vocab/timeseries#mean> "411".
+<https://stad.gent/id/parking/P8> <http://datapiloten.be/vocab/timeseries#mean> "125".
+<https://stad.gent/id/parking/P2> <http://datapiloten.be/vocab/timeseries#mean> "390"
+}
+<undefinedTimeRange/fragment/2019_2020/03_04> <http://www.w3.org/ns/prov#generatedAtTime> "2019-03-20T10:33:45.005Z";
+    a <http://w3id.org/multidimensional-interface/ontology#RangeFragment>;
+    <http://w3id.org/multidimensional-interface/ontology#initial> "2019-03-01T00:00:00.000Z";
+    <http://w3id.org/multidimensional-interface/ontology#final> "2019-04-01T00:00:00.000Z";
+    <http://w3id.org/multidimensional-interface/ontology#hasRangeGate> <undefinedTimeRange/fragment/2019_2020/>;
+    <http://datapiloten.be/vocab/timeseries#sampleSize> "1".

@@ -2,6 +2,8 @@ export {};
 const CommunicationManager = require('../lib/CommunicationManager');
 const Configuration = require('../lib/Configuration');
 const DataEventManager = require('../lib/DataEventManager');
+const DataFetcher = require('../lib/DataFetcher');
+const TimeRange = require('../lib/interfaces/TimeRange');
 
 try {
     // Read the configuration file
@@ -13,7 +15,16 @@ try {
     // Load multidimensional interfaces
     loadInterfaceModules(config.interfaces, commManager);
 
-    // Listen for data on standard input
+    //////////////////////////////////////////////
+    /*
+    * Getting Air quality data
+    * */
+    const fetcher = new DataFetcher([]);
+    //fetcher.fetchData('');
+
+    //////////////////////////////////////////////
+
+    // Listen for data on standard input -- this will be replaced
     let stdin = process.openStdin();
     stdin.on('data', chunk => {
         // Launch data event towards interfaces through Data Event Manager module

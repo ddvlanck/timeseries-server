@@ -25,7 +25,9 @@ module.exports = new class Utils {
     }
 
     async overwriteFile(path: PathLike, data: any){
-        return await fs.writeFile(path, data);
+        return await fs.writeFile(path, data, (err => {
+            if(err) throw err;
+        }));
     }
 
     async appendToFile(path: PathLike, data: any){
@@ -160,7 +162,6 @@ module.exports = new class Utils {
 
     getTriplesBySPOG(array, s, p, o, g){
         let temp = array;
-
         if(s){
             temp = temp.filter(t => t.subject === s);
         }
@@ -178,5 +179,54 @@ module.exports = new class Utils {
         }
 
         return temp;
+    }
+
+    /*
+    *   Hier bepalen we alle bestanden die nodig zijn om het gevraagde bestand te genereren
+    *   Eventueel een object teruggeven waarin een onderscheid gemaakt wordt tussen de verschillende bestanden
+    * */
+
+    getFilesFromInterfaceByParams(path: string): Array<string>{
+        let files: Array<string> = [];
+        fs.readdirSync(path).forEach( file => {
+            files.push(file);
+        });
+        return files;
+
+    }
+
+    getAllDataToGenerateFile(path: string, files: Array<string>){
+        let level: string = null;
+        const date = path.substring(path.lastIndexOf('/') + 1, path.length -5);
+        const timePieces = date.split('-');
+
+        if(timePieces.length === 1){
+            level = 'year';
+        } else if(timePieces.length === 2){
+            level = 'month';
+        } else {
+            level = 'day';
+        }
+
+        // f = f.replace(/_/g, ':');
+        const monthRegex: RegExp = new RegExp('^' + date + '-[0-1][0-9].trig$');
+        const dayRegex: RegExp = new RegExp('^' + date + '-[0-3][0-9].trig$');
+        const hourRegex: RegExp = new RegExp('^' + date + 'T[0-2][0-9].trig');
+
+        let counter = 0;
+        let dataFiles: Array<string> = [];
+
+        for(let file in files){
+            if(level === 'year' && monthRegex.test(file)){
+                // We have to search for the 'month'-files
+                dataFiles.push(file);
+            } else {
+
+            }
+        }
+    }
+
+    getFilesForDay(regex: RegExp){
+
     }
 }

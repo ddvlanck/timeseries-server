@@ -14,7 +14,7 @@ class RawData extends MultidimensionalInterface {
     private _lastFragment;
     private _lastGat;
 
-    constructor(config, commMan){
+    constructor(config, commMan: CommunicationManager){
         super(commMan);
         this._serverUrl = this.commMan.config.serverUrl;
         this._name = config.name;
