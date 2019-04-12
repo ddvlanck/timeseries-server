@@ -3,20 +3,16 @@
   "version": "0.1.0",
   "description": "A server to host linked time series data as linked data fragments",
   "main": "bin/timeseries-server.js",
-  "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
-  },
   "dependencies": {
-    "axios": "^0.18.0",
-    "es6-promise": "^4.2.6",
-    "iot-stack-client": "^0.6.4",
-    "isomorphic-fetch": "^2.2.1",
+    "kafka-node": "^4.0.3",
     "koa": "^2.4.1",
     "koa-router": "^7.2.1",
     "md5": "^2.2.1",
     "moment": "^2.21.0",
-    "n3": "^0.11.2",
+    "moment-timezone": "^0.5.23",
+    "n3": "^0.11.3",
+    "node-schedule": "^1.3.2",
+    "rdf-quad": "^1.3.0",
     "rxjs": "^6.4.0",
     "ws": "^3.3.1"
   },

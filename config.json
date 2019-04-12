@@ -9,16 +9,24 @@
 			"wsPort": 3001,
 			"fragmentsPath": "./example/data/RawData",
 			"staticTriples": "./example/data/rawdata_static.trig",
-			"maxFileSize": 100000
+			"maxFileSize": 50000
 		},
 		{
-			"name": "TimeRange",
-			"path": "../lib/interfaces/TimeRange",
+			"name": "TimeRangeData",
+			"path": "../lib/interfaces/TimeRangeData",
 			"websocket": true,
 			"wsPort": 3002,
 			"fragmentsPath": "./example/data/TimeRangeData",
 			"staticTriples": "./example/data/timerangedata_static.trig",
-            "maxFileSize" : 100000
+			"maxFileSize": 50000
+		},
+		{
+			"name": "StatisticalAverage",
+			"path": "../lib/interfaces/StatisticalAverage",
+			"websocket": true,
+			"wsPort": 3003,
+			"fragmentsPath": "./example/data/StatData",
+			"staticTriples": "./example/data/statsdata_static.trig"
 		}
 	]
 }
