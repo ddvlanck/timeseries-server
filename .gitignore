@@ -1,3 +1,5 @@
 node_modules/*
 example/data/RawData/*
-example/data/StatData/*
+example/data/StatisticalAverage/*
+example/data/Geographical/*
+example/data/TimeRangeData/*

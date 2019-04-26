@@ -25,8 +25,16 @@
 			"path": "../lib/interfaces/StatisticalAverage",
 			"websocket": true,
 			"wsPort": 3003,
-			"fragmentsPath": "./example/data/StatData",
-			"staticTriples": "./example/data/statsdata_static.trig"
+			"fragmentsPath": "./example/data/StatisticalAverage",
+			"staticTriples": "./examples/data/statisticalaverage_static.trig"
+		},
+		{
+			"name": "Geographical",
+			"path": "../lib/interfaces/Geographical",
+			"websocket": true,
+			"wsPort": 3003,
+			"fragmentsPath": "./example/data/Geographical",
+			"maxFileSize": 50000
 		}
 	]
 }

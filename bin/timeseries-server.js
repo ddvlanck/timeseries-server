@@ -6,7 +6,7 @@ const DataMapper = require('../lib/DataMapper');
 const kafka = require('kafka-node');
 const Consumer = kafka.Consumer;
 
-const schedule = require('node-schedule');
+const Utils= require('../lib/Utils');
 
 try {
 
@@ -41,7 +41,7 @@ try {
 
         // Check wat die VOC is - blijkt niet meer aanwezig
         if(data.metricId.indexOf('airquality') >= 0 && data.metricId.indexOf('voc') < 0){
-           // mapper.mapData(data);
+           mapper.mapData(data);
         }
 
     });
