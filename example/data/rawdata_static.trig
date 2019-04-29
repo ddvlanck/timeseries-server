@@ -3,6 +3,6 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@predix schema= <http://www.schema.org/> .
+@predix schema: <http://www.schema.org/> .
 @base <http://example.org/data/> .
 

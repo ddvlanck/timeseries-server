@@ -8,7 +8,7 @@
 			"websocket": true,
 			"wsPort": 3001,
 			"fragmentsPath": "./example/data/RawData",
-			"staticTriples": "./example/data/rawdata_static.trig",
+			"staticTriples": "./example/data/prefixes.trig",
 			"maxFileSize": 50000
 		},
 		{
@@ -17,7 +17,7 @@
 			"websocket": true,
 			"wsPort": 3002,
 			"fragmentsPath": "./example/data/TimeRangeData",
-			"staticTriples": "./example/data/timerangedata_static.trig",
+			"staticTriples": "./example/data/prefixes.trig",
 			"maxFileSize": 50000
 		},
 		{
@@ -26,7 +26,7 @@
 			"websocket": true,
 			"wsPort": 3003,
 			"fragmentsPath": "./example/data/StatisticalAverage",
-			"staticTriples": "./examples/data/statisticalaverage_static.trig"
+			"staticTriples": "./example/data/prefixes.trig"
 		},
 		{
 			"name": "Geographical",
@@ -34,6 +34,7 @@
 			"websocket": true,
 			"wsPort": 3003,
 			"fragmentsPath": "./example/data/Geographical",
+			"staticTriples": "./example/data/prefixes.trig",
 			"maxFileSize": 50000
 		}
 	]
