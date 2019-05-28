@@ -4,7 +4,7 @@
   "description": "A server to host linked time series data as linked data fragments",
   "main": "bin/timeseries-server.js",
   "scripts": {
-    "start" : "node bin/timeseries-server.js -c config.json"
+    "start": "node bin/timeseries-server.js -c config.json"
   },
   "dependencies": {
     "kafka-node": "^4.1.1",
@@ -19,6 +19,7 @@
     "rdf": "^4.0.1",
     "rdf-quad": "^1.3.0",
     "rxjs": "^6.4.0",
+    "socket.io": "^2.2.0",
     "ws": "^3.3.1"
   },
   "devDependencies": {

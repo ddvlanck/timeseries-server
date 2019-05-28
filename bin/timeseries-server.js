@@ -34,12 +34,12 @@ try {
     let sources = new Map();
 
     // Initiate kafka client
-    let client = new kafka.KafkaClient();    // maybe do something if there's an idle connection
+    //let client = new kafka.KafkaClient();    // maybe do something if there's an idle connection
+    let client = new kafka.KafkaClient({kafkaHost: '172.17.0.3:9092'})
     let consumer = new Consumer(client, [{topic: 'airquality'}], {fetchMaxBytes: 1024});
     consumer.on('message', (message) => {
         const data = JSON.parse(message.value);
 
-        // Check wat die VOC is - blijkt niet meer aanwezig
         if(data.metricId.indexOf('airquality') >= 0 && data.metricId.indexOf('voc') < 0){
            mapper.mapData(data);
         }
@@ -48,16 +48,7 @@ try {
 
     consumer.on('error', (err) => {
         console.log(err);
-    })
-
-
-    // Listen for data on standard input
-    /*let stdin = process.openStdin();
-     stdin.on('data', chunk => {
-         // Launch data event towards interfaces through Data Event Manager module
-         console.log(chunk.toString());
-        // DataEventManager.push('data', chunk);
-     });*/
+    });
 
     // Launch Web server for polling interfaces
     let app = commManager.app;

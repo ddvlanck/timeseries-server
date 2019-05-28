@@ -7,3 +7,4 @@
 @prefix time: <https://www.w3.org/TR/owl-time/>.
 @prefix ts: <http://datapiloten.be/vocab/timeseries#>.
 @prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix tree: <http://datapiloten.be/vocab/tree#>.
