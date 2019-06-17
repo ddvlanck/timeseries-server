@@ -17,6 +17,7 @@
 			"websocket": true,
 			"wsPort": 3002,
 			"fragmentsPath": "./example/data/TimeRangeData",
+			"staticTriples": "./example/data/prefixes.trig",
 			"prefixes": "./example/data/prefixes.trig",
 			"maxFileSize": 50000
 		},
